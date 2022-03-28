@@ -1,0 +1,10 @@
+{
+  "event_name": "advocate_mobile_experience",
+  "data": {
+    "first_name": "John",
+    "email": "john.doe@abc.com",
+    "partner_user_id":"1220000",
+    "labels":"refer-a-friend-lumea-czech-republic",
+    "locale":"nl-NL"
+  }
+}
