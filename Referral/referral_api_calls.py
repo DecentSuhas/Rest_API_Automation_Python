@@ -4,15 +4,17 @@ import json
 import requests
 import urllib3
 
-urllib3.disable_warnings()
+from Referral import config
 
-baseUrl = "https://philips.extole.io"
-api_token = "/api/v5/token"
-api_v6_zones = "/api/v6/zones"
+urllib3.disable_warnings()
 
 
 def fetchAccessToken():
-    login_url = "https://philips.extole.io/api/v5/token"
+    """
+    This method returns the access token generated in the string format
+    :return: access_token
+    """
+    login_url = config.BASE_URL+config.TOKEN_URL
     req = requests.post(login_url, verify=False)
     json_response = req.json()
     access_token = json_response.get("access_token")
@@ -25,14 +27,19 @@ def read_json():
     data = json_content['data']['labels']
 
 
-def show_prefetch_content():
-    prefetch_api = "https://philips.extole.io/api/v6/zones"
+def get_prefetch_content():
+    """
+    This method hits the prefetch api and returns the response in dictionary format.
+    :return: prefetch_content_resp
+    """
+    prefetch_api = config.BASE_URL+config.V6_URL
     payload = open("data_for_referral.json", "r").read()
     token = "Bearer " + str(fetchAccessToken())
     header_value = {'Content-type': 'application/json', 'Accept': 'application/json', 'Authorization': token}
     req = requests.post(prefetch_api, json=json.loads(payload), headers=header_value, verify=False)
-    # If you try data=json.loads(payload) then you will get Invalid json error. So use json
-    test = req.json()
-    print(type(test))
+    # If you try data=json.loads(payload) then you will get Invalid json error. So use "json=json.loads(payload)"
+    prefetch_content_resp = req.json()  # returns a dict
+    #response_to_json = json.dumps(response)  # returns a json
+    return prefetch_content_resp
 
-show_prefetch_content()
+

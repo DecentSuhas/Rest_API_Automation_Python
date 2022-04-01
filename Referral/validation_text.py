@@ -1,0 +1,15 @@
+HEADER_TEXT = "Refer T&B"
+PARAGRAPH_VALUE = "Recommend to your friends to get Philips Lumea. If they use the link you sent, they will receive a " \
+                  "15% discount on the purchase of the Philips Lumea BRI947/00 models and you will receive a 15% " \
+                  "discount code from Philips on the next purchase on the Philips e-shop. It is a win-win! "
+HOW_IT_WORKS_TEXT_HEADER = "Hoe werkt het?"
+CTA_DASHBOARD_TOP_NAME = "Dashboard_top_button"
+CTA_DASHBOARD_TOP_TEXT_HEADER = "Refer T&B"
+CTA_DASHBOARD_BOTTOM_NAME = "Dashboard_bottom_banner"
+CTA_DASHBOARD_BOTTOM_TEXT_HEADER = "Refer T&B"
+CTA_EXPLORE_NAME = "Explore"
+CTA_EXPLORE_TEXT_HEADER = "Refer T&B"
+CTA_PROFILE_NAME = "Profile"
+CTA_PROFILE_TEXT_HEADER = "Refer T&B"
+CTA_TREATMENT_REPORT_BANNER_NAME = "Treatment_report_banner"
+CTA_TREATMENT_REPORT_BANNER_HEADER_TEXT = "Happy with the results?"
