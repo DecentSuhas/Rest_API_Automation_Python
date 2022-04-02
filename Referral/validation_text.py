@@ -1,7 +1,5 @@
 HEADER_TEXT = "Refer T&B"
-PARAGRAPH_VALUE = "Recommend to your friends to get Philips Lumea. If they use the link you sent, they will receive a " \
-                  "15% discount on the purchase of the Philips Lumea BRI947/00 models and you will receive a 15% " \
-                  "discount code from Philips on the next purchase on the Philips e-shop. It is a win-win! "
+PARAGRAPH_VALUE = "Recommend to your friends to get Philips Lumea. If they use the link you sent, they will receive a 15% discount on the purchase of the Philips Lumea BRI947/00 models and you will receive a 15% discount code from Philips on the next purchase on the Philips e-shop. It is a win-win!"
 HOW_IT_WORKS_TEXT_HEADER = "Hoe werkt het?"
 CTA_DASHBOARD_TOP_NAME = "Dashboard_top_button"
 CTA_DASHBOARD_TOP_TEXT_HEADER = "Refer T&B"
@@ -13,3 +11,8 @@ CTA_PROFILE_NAME = "Profile"
 CTA_PROFILE_TEXT_HEADER = "Refer T&B"
 CTA_TREATMENT_REPORT_BANNER_NAME = "Treatment_report_banner"
 CTA_TREATMENT_REPORT_BANNER_HEADER_TEXT = "Happy with the results?"
+
+CTA_DASHBOARD_BOTTOM_BTN_DESC = "Share your Lumea experience, give and receive Philips vouchers. Win-win!"
+CTA_EXPLORE_BTN_DESC = "Receive a Philips voucher for every friend that joins Lumea!"
+CTA_PROFILE_BTN_DESC = "Receive a Philips voucher for each friend that joins Lumea."
+CTA_TREATMENT_BTN_DESC = "Refer a friend and get a Philips voucher when they join."
