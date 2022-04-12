@@ -1,4 +1,5 @@
 """ It includes basic referral api response"""
+
 import json
 from behave import step # pylint: disable=no-name-in-module
 import requests
@@ -6,7 +7,6 @@ import urllib3
 from Referral.utilities import config
 
 urllib3.disable_warnings()
-
 get_access_token = ""
 prefetchContent = {}
 
@@ -27,7 +27,7 @@ def fetch_accessToken(context):
 
 
 def read_json():
-    json_file = open("../data/data_for_referral.json", "r").read()
+    json_file = open("../data/referalBody.json", "r").read()
     json_content = json.loads(json_file)
     data = json_content['data']['labels']
 
@@ -41,13 +41,14 @@ def getPrefetchContent(context):
     # cwd = os.getcwd()
     # files = os.listdir(cwd)
     # print("Files in %r: %s" % (cwd, files))
-    payload = open("Referral/data/data_for_referral.json", "r").read()
+    payload = open("C:/Users/320052425/Desktop/Rest_API_Automation_Python/Referral/data/referalBody.json", "r").read()
     token = "Bearer " + get_access_token
     header_value = {'Content-type': 'application/json',
                     'Accept': 'application/json', 'Authorization': token}
     req = requests.post(prefetch_api, json=json.loads(payload),
                         headers=header_value, verify=False)
-    # If you try data=json.loads(payload) then you will get Invalid json error. So use "json=json.loads(payload)"
+    # If you try data=json.loads(payload) then you will get
+    # Invalid json error. So use "json=json.loads(payload)"
     prefetch_content_resp = req.json()  # returns a dict
     # response_to_json = json.dumps(response)  # returns a json
     return prefetch_content_resp
