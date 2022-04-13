@@ -6,6 +6,6 @@ from behave import __main__ as runner
 
 if __name__ == "__main__":
     runner.main('-f allure_behave.formatter:AllureFormatter '
-                '-o reports '
+                '-o reports --no-skipped --no-capture --no-capture-stderr -f plain '
                 './features/ '
-                '--tags=test')
+                '--tags=api_test')

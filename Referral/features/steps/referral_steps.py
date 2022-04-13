@@ -6,13 +6,14 @@ from Referral.utilities.apiCalls import getPrefetchContent, \
 from Referral.data import text # pylint: disable=no-name-in-module
 
 
-def validate_head_text():
+@step("I verify the title text of referral full screen")
+def validate_head_text(context):
     """
     This methods verifies the header text of referral main
     :return:
     """
     expected_text_header = text.HEADER_TEXT
-    prefetchContent.update(getPrefetchContent())
+    prefetchContent.update(getPrefetchContent(context))
     head_text = prefetchContent['data']['mainView']['header']  # It is a string
     assert head_text == expected_text_header, f"Incorrect header found = {head_text}"
     print(f"Success: Header text : {head_text}")
@@ -34,7 +35,8 @@ def validate_header_text_on_referral_buttons(context):
     validate_resp("Profile", dashboard_profile_head_text, text.PROFILE_TEXT_HEADER)
 
 
-def validate_referral_button_description():
+@step("I verify the description text in referral banner entry points")
+def validate_desc_ref_banner(context):
     """
         This method verifies the description text of referral banners in all entry points
         :return:
@@ -52,15 +54,15 @@ def validate_referral_button_description():
     validate_resp("Banner description-TreatmentReport", treatment_report_banner_desc,
                   text.TREATMENT_BTN_DESC)
 
-
-def validate_campaign_text():
+@step("I verify the campaign text")
+def validate_campaign_text(context):
     """
     This method verifies the campaign text in referral screen.
     :return:
     """
-    prefetchContent.update(getPrefetchContent())
+    prefetchContent.update(getPrefetchContent(context))
     campaign_desc = prefetchContent['data']['mainView']['paragraph']
-    validate_resp("Campaign descrition", campaign_desc,
+    validate_resp("Campaign description", campaign_desc,
                   text.PARAGRAPH_VALUE)
 
 
@@ -74,5 +76,5 @@ def validate_resp(referral_entrypoint, actual_text, expected_text):
     :return:
     """
     assert actual_text == expected_text, \
-        f"Incorrect text found in {referral_entrypoint} = {actual_text}"
-    print(f"Success: Text found in {referral_entrypoint} = {actual_text}")
+        f"Incorrect text found in {referral_entrypoint} is \'{actual_text}\'"
+    print(f"Success: Text found in {referral_entrypoint} is \'{actual_text}\'")

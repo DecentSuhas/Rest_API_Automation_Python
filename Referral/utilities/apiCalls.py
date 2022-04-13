@@ -11,7 +11,7 @@ get_access_token = ""
 prefetchContent = {}
 
 
-@step("User is logged in")
+@step("The user is logged in")
 def fetch_accessToken(context):
     """
     This method returns the access token generated in the string format
