@@ -1,11 +1,12 @@
 """
-Runner file with execution configurations
+Runner file
 """
 
 from behave import __main__ as runner
 
 if __name__ == "__main__":
-    runner.main('-f allure_behave.formatter:AllureFormatter '
-                '-o reports --no-skipped --no-capture --no-capture-stderr -f plain '
-                './features/ '
+    runner.main('./features/ '
+                '-f allure_behave.formatter:AllureFormatter '
+                '-o reports --no-capture --no-skipped --no-capture-stderr -f plain '                
                 '--tags=api_test')
+

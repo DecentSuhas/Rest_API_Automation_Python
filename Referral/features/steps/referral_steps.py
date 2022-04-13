@@ -1,16 +1,16 @@
 """ Includes referral steps"""
-from behave import step # pylint: disable=no-name-in-module
+from behave import step  # pylint: disable=no-name-in-module
 
 from Referral.utilities.apiCalls import getPrefetchContent, \
     prefetchContent  # pylint: disable=no-name-in-module
-from Referral.data import text # pylint: disable=no-name-in-module
+from Referral.data import text  # pylint: disable=no-name-in-module
 
 
 @step("I verify the title text of referral full screen")
 def validate_head_text(context):
     """
     This methods verifies the header text of referral main
-    :return:
+    :return: None
     """
     expected_text_header = text.HEADER_TEXT
     prefetchContent.update(getPrefetchContent(context))
@@ -23,7 +23,7 @@ def validate_head_text(context):
 def validate_header_text_on_referral_buttons(context):
     """
     This method verifies the header text of referral entry points
-    :return:
+    :return: None
     """
     dashboard_top_head_text = prefetchContent['data']['calls_to_action'][0]['ctaButtonText']
     dashboard_bottom_head_text = prefetchContent['data']['calls_to_action'][1]['headerText']
@@ -38,8 +38,8 @@ def validate_header_text_on_referral_buttons(context):
 @step("I verify the description text in referral banner entry points")
 def validate_desc_ref_banner(context):
     """
-        This method verifies the description text of referral banners in all entry points
-        :return:
+    This method verifies the description text of referral banners in all entry points
+    :return: None
     """
     dashboard_banner_desc = prefetchContent['data']['calls_to_action'][1]['paragraph']
     explore_banner_desc = prefetchContent['data']['calls_to_action'][2]['paragraph']
@@ -54,11 +54,12 @@ def validate_desc_ref_banner(context):
     validate_resp("Banner description-TreatmentReport", treatment_report_banner_desc,
                   text.TREATMENT_BTN_DESC)
 
+
 @step("I verify the campaign text")
 def validate_campaign_text(context):
     """
     This method verifies the campaign text in referral screen.
-    :return:
+    :return: None
     """
     prefetchContent.update(getPrefetchContent(context))
     campaign_desc = prefetchContent['data']['mainView']['paragraph']
@@ -73,8 +74,9 @@ def validate_resp(referral_entrypoint, actual_text, expected_text):
     :param referral_entrypoint:
     :param actual_text:
     :param expected_text:
-    :return:
+    :return: None
     """
     assert actual_text == expected_text, \
         f"Incorrect text found in {referral_entrypoint} is \'{actual_text}\'"
     print(f"Success: Text found in {referral_entrypoint} is \'{actual_text}\'")
+

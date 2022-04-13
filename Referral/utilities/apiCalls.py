@@ -19,6 +19,7 @@ def fetch_accessToken(context):
     """
     login_url = config.BASE_URL + config.TOKEN_URL
     req = requests.post(login_url, verify=False)
+    validate_status_code(context,req,"Login")
     json_response = req.json()
     access_token = json_response.get("access_token")
     # return access_token
@@ -47,6 +48,7 @@ def getPrefetchContent(context):
                     'Accept': 'application/json', 'Authorization': token}
     req = requests.post(prefetch_api, json=json.loads(payload),
                         headers=header_value, verify=False)
+    validate_status_code(context, req, "Prefetch")
     # If you try data=json.loads(payload) then you will get
     # Invalid json error. So use "json=json.loads(payload)"
     prefetch_content_resp = req.json()  # returns a dict
@@ -72,3 +74,16 @@ def clear_prefetch_resp_dict(context):
     :return:
     """
     prefetchContent.clear()
+
+
+def validate_status_code(context, req, feature):
+    """
+    This method validates the status code and returns true
+    :param context:
+    :param req:
+    :param feature:
+    :return:
+    """
+    status_code = req.status_code
+    assert status_code == 200, f"{feature} api call failed. status code: {status_code}"
+    print(f"{feature} api call success. status code: {status_code}")

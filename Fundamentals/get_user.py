@@ -10,21 +10,21 @@ urllib3.disable_warnings()
 
 logging.captureWarnings(True)
 resp = requests.get("https://reqres.in/api/users?page=2", verify=False)
-#print(type(resp))
-#print(resp)
-#print(dir(resp))
+# print(type(resp))
+# print(resp)
+# print(dir(resp))
 
 code = resp.status_code
-assert code==200, "Code doesn\'t match"
+assert code == 200, "Code doesn\'t match"
 content = resp.content
-#print(content)  # this prints in byte
+# print(content)  # this prints in byte
 text = resp.text
-#print(text)  # This prints in unicode (plain strings)
+# print(text)  # This prints in unicode (plain strings)
 jsons = resp.json()
-#print(jsons)
+# print(jsons)
 
 headers = resp.headers
-#print(type(headers))
+# print(type(headers))
 
 cookies = resp.cookies
 print(cookies)
