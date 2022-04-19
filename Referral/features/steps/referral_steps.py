@@ -1,6 +1,7 @@
 """ Includes referral steps"""
 from behave import step  # pylint: disable=no-name-in-module
 
+from Referral.data.text import localization_dict
 from Referral.utilities.apiCalls import getPrefetchContent, \
     prefetchContent  # pylint: disable=no-name-in-module
 from Referral.data import text  # pylint: disable=no-name-in-module
@@ -13,7 +14,7 @@ def validate_head_text(context):
     This methods verifies the header text of referral main
     :return: None
     """
-    expected_text_header = text.HEADER_TEXT
+    expected_text_header = localization_dict["HEADER_TEXT"]
     prefetchContent.update(getPrefetchContent(context))
     head_text = prefetchContent['data']['mainView']['header']  # It is a string
     assert head_text == expected_text_header, f"Incorrect header found = {head_text}"
@@ -47,13 +48,13 @@ def validate_desc_ref_banner(context):
     profile_banner_desc = prefetchContent['data']['calls_to_action'][3]['paragraph']
     treatment_report_banner_desc = prefetchContent['data']['calls_to_action'][4]['paragraph']
     validate_resp("Banner description-Dashboard", dashboard_banner_desc,
-                  text.DASHBRD_BTM_BTN_DESC)
+                  localization_dict["DASHBRD_BTM_BTN_DESC"])
     validate_resp("Banner description-Explore", explore_banner_desc,
-                  text.EXPLORE_BTN_DESC)
+                  localization_dict["EXPLORE_BTN_DESC"])
     validate_resp("Banner description-Profile", profile_banner_desc,
-                  text.PROFILE_BTN_DESC)
+                  localization_dict["PROFILE_BTN_DESC"])
     validate_resp("Banner description-TreatmentReport", treatment_report_banner_desc,
-                  text.TREATMENT_BTN_DESC)
+                  localization_dict["TREATMENT_BTN_DESC"])
 
 
 @step("I verify the campaign text")
@@ -65,7 +66,7 @@ def validate_campaign_text(context):
     prefetchContent.update(getPrefetchContent(context))
     campaign_desc = prefetchContent['data']['mainView']['paragraph']
     validate_resp("Campaign description", campaign_desc,
-                  text.PARAGRAPH_VALUE)
+                  localization_dict["PARAGRAPH_VALUE"])
 
 
 @step("I verify the how it works title and description")
@@ -80,9 +81,10 @@ def validate_how_it_works(context):
     # validate_resp("How it works title", HIT_title,
     #               text.HOW_IT_WORKS_TEXT)
     validate_resp("How it works description", HIT_desc,
-                  text.HOW_IT_WORKS_DESC)
+                  localization_dict["HOW_IT_WORKS_DESC"])
 
-def validate_resp(referral_entrypoint, actual_text):
+
+def validate_resp(referral_entrypoint, actual_text, *argvs):
     """
         This method verifies the text.
 
@@ -92,14 +94,10 @@ def validate_resp(referral_entrypoint, actual_text):
     :return: None
     """
     check = "False"
-    for item in range(0,len(locale_text_list)):
+    for item in range(0, len(locale_text_list)):
         expected_text = locale_text_list[item]
         if actual_text == expected_text:
             check = "True"
-    assert check == "True",\
+    assert check == "True", \
         f"Incorrect text found in {referral_entrypoint} : \'{actual_text}\'"
     print(f"Success: Text found in {referral_entrypoint} is \'{actual_text}\'")
-
-
-
-
