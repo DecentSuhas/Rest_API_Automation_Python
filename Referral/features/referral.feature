@@ -5,6 +5,7 @@ Feature: Referral
     Given The user is logged in
     When I hit the prefetch api and get the response
     Then I verify title text in banners and referral screen
+    And I clear the list
 
   #@api_test
   Scenario: Verify title text in referral full screen
@@ -23,3 +24,9 @@ Feature: Referral
     Given The user is logged in
     When I hit the prefetch api and get the response
     Then I verify the campaign text
+
+  #@api_test
+  Scenario: Verify the how it works title text and description
+    Given The user is logged in
+    When I hit the prefetch api and get the response
+    Then I verify the how it works title and description

@@ -5,6 +5,7 @@ from behave import step # pylint: disable=no-name-in-module
 import requests
 import urllib3
 from Referral.utilities import config
+from Referral.utilities.excel_operations import locale_text_list
 
 urllib3.disable_warnings()
 get_access_token = ""
@@ -75,6 +76,15 @@ def clear_prefetch_resp_dict(context):
     """
     prefetchContent.clear()
 
+
+@step("I clear the list")
+def clear_resp_list(context):
+    """
+    It clears the list
+    :param context:
+    :return:
+    """
+    locale_text_list.clear()
 
 def validate_status_code(context, req, feature):
     """
