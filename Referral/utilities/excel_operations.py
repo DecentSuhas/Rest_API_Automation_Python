@@ -2,21 +2,21 @@
  This file has all the functions related to excel operation
 """
 import openpyxl
-
-from Referral.data.text import localization_dict
+from Referral.utilities.config import localization_dict, path
 
 locale_text_list = []
 
 
 def get_ref_text_from_excel(locale):
-    wb = openpyxl.load_workbook(r"C:\Users\320052425\Desktop\Rest_API_Automation_Python\Referral\localization.xlsx")
-
+    excelPath = path+"\\data\\localization.xlsx"
+    print(excelPath)
+    wb = openpyxl.load_workbook(excelPath)
     counter = 0
     sheet = wb.active
     row = sheet.max_row
     col = sheet.max_column
     global locale_text_list
-    for i in range(1, col+1):
+    for i in range(1, col + 1):
         cell = sheet.cell(row=1, column=i)
         if cell.value == locale:
             for k in range(2, row - 1):

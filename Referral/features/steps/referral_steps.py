@@ -1,10 +1,10 @@
 """ Includes referral steps"""
 from behave import step  # pylint: disable=no-name-in-module
 
-from Referral.data.text import localization_dict
+
 from Referral.utilities.apiCalls import getPrefetchContent, \
     prefetchContent  # pylint: disable=no-name-in-module
-from Referral.data import text  # pylint: disable=no-name-in-module
+from Referral.utilities.config import localization_dict
 from Referral.utilities.excel_operations import locale_text_list
 
 

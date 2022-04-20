@@ -5,6 +5,7 @@ from behave import step # pylint: disable=no-name-in-module
 import requests
 import urllib3
 from Referral.utilities import config
+from Referral.utilities.config import path
 from Referral.utilities.excel_operations import locale_text_list
 
 urllib3.disable_warnings()
@@ -43,7 +44,8 @@ def getPrefetchContent(context):
     # cwd = os.getcwd()
     # files = os.listdir(cwd)
     # print("Files in %r: %s" % (cwd, files))
-    payload = open("C:/Users/320052425/Desktop/Rest_API_Automation_Python/Referral/data/referalBody.json", "r").read()
+    jsonPath = path + "\\data\\referalBody.json"
+    payload = open(jsonPath, "r").read()
     token = "Bearer " + get_access_token
     header_value = {'Content-type': 'application/json',
                     'Accept': 'application/json', 'Authorization': token}
