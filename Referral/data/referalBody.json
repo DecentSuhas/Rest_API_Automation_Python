@@ -1,10 +1,10 @@
 {
   "event_name": "advocate_mobile_experience",
   "data": {
-    "first_name": "John",
-    "email": "john.doe@abc.com",
-    "partner_user_id":"1220000",
-    "labels":"lumea-mobile-app-staging-try-and-buy",
-    "locale":"nl-NL"
+    "first_name": "Lumea_automation",
+    "email": "Lumea_automation@yopmail.com",
+    "partner_user_id": "1220000",
+    "labels": "refer-a-friend-lumea-romania",
+    "locale": "ro-RO"
   }
 }

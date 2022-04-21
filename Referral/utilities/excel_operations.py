@@ -9,7 +9,6 @@ locale_text_list = []
 
 def get_ref_text_from_excel(locale):
     excelPath = path+"\\data\\localization.xlsx"
-    print(excelPath)
     wb = openpyxl.load_workbook(excelPath)
     counter = 0
     sheet = wb.active
@@ -25,6 +24,3 @@ def get_ref_text_from_excel(locale):
     for key in localization_dict.keys():
         localization_dict[key] = locale_text_list[counter]
         counter = counter + 1
-
-
-get_ref_text_from_excel("English")

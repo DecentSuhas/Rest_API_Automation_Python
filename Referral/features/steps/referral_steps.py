@@ -99,5 +99,5 @@ def validate_resp(referral_entrypoint, actual_text, *argvs):
         if actual_text == expected_text:
             check = "True"
     assert check == "True", \
-        f"Incorrect text found in {referral_entrypoint} : \'{actual_text}\'"
+        f"Incorrect text found in {referral_entrypoint} : \'{actual_text}\' : Expected text = {expected_text}"
     print(f"Success: Text found in {referral_entrypoint} is \'{actual_text}\'")
