@@ -5,7 +5,7 @@ TOKEN_URL = "/api/v5/token"
 V6_URL = "/api/v6/zones"
 path = os.getcwd()
 
-locale = "Romania"
+locale = "Netherlands"
 
 localization_dict = {
         "HEADER_TEXT": "",
